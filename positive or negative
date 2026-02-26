@@ -1,0 +1,23 @@
+class NumberCheck {
+    int num;
+
+    // Constructor
+    NumberCheck(int n) {
+        num = n;
+    }
+
+    // Member function
+    void checkSign() {
+        if (num > 0)
+            System.out.println("Positive Number");
+        else if (num < 0)
+            System.out.println("Negative Number");
+        else
+            System.out.println("Zero");
+    }
+
+    public static void main(String[] args) {
+        NumberCheck obj = new NumberCheck(-5);
+        obj.checkSign();
+    }
+}
