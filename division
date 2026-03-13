@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class DivisionExceptionExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter the numerator: ");
+            int num = sc.nextInt();
+
+            System.out.print("Enter the denominator: ");
+            int den = sc.nextInt();
+
+            int result = num / den;  // May cause ArithmeticException
+
+            System.out.println("Result of division: " + result);
+        } 
+        catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        } 
+        finally {
+            sc.close();
+        }
+    }
+}
