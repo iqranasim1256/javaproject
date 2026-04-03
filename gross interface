@@ -1,0 +1,57 @@
+// Gross interface
+interface Gross {
+    double calculateGross();
+}
+
+// Employee class
+class Employee {
+    String name;
+    int empId;
+
+    Employee(String name, int empId) {
+        this.name = name;
+        this.empId = empId);
+    }
+
+    void displayEmployee() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + empId);
+    }
+}
+
+// Salary class extending Employee and implementing Gross
+class Salary extends Employee implements Gross {
+    double basic;
+    double hra;
+    double da;
+
+    Salary(String name, int empId, double basic, double hra, double da) {
+        super(name, empId);
+        this.basic = basic;
+        this.hra = hra;
+        this.da = da;
+    }
+
+    // Implementing Gross interface method
+    public double calculateGross() {
+        return basic + hra + da;
+    }
+
+    void displaySalary() {
+        double gross = calculateGross();
+        System.out.println("Basic Salary: " + basic);
+        System.out.println("HRA: " + hra);
+        System.out.println("DA: " + da);
+        System.out.println("Gross Salary: " + gross);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Salary emp = new Salary("Amit", 201, 30000, 5000, 3000);
+
+        emp.displayEmployee();
+        emp.displaySalary();
+    }
+}
