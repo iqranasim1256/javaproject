@@ -1,0 +1,66 @@
+// Bank interface
+interface Bank {
+    void deposit(double amount);
+    void withdraw(double amount);
+    void checkBalance();
+}
+
+// Customer class
+class Customer {
+    String name;
+    int customerId;
+
+    Customer(String name, int customerId) {
+        this.name = name;
+        this.customerId = customerId;
+    }
+
+    void displayCustomer() {
+        System.out.println("Customer Name: " + name);
+        System.out.println("Customer ID: " + customerId);
+    }
+}
+
+// Account class implementing Bank and extending Customer
+class Account extends Customer implements Bank {
+    double balance;
+
+    Account(String name, int customerId, double balance) {
+        super(name, customerId);
+        this.balance = balance;
+    }
+
+    // Implementing Bank interface methods
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println(amount + " deposited.");
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println(amount + " withdrawn.");
+        } else {
+            System.out.println("Insufficient balance!");
+        }
+    }
+
+    public void checkBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Account acc = new Account("Rahul", 101, 5000);
+
+        acc.displayCustomer();
+        acc.checkBalance();
+
+        acc.deposit(2000);
+        acc.withdraw(1500);
+
+        acc.checkBalance();
+    }
+}
