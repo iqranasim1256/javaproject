@@ -1,0 +1,18 @@
+import java.awt.*;
+
+public class TextDisplay extends Frame {
+
+    TextDisplay() {
+        setTitle("AWT Text Example");
+        setSize(400, 300);
+        setVisible(true);
+    }
+
+    public void paint(Graphics g) {
+        g.drawString("Hello, Welcome to AWT!", 100, 150);
+    }
+
+    public static void main(String[] args) {
+        new TextDisplay();
+    }
+}
