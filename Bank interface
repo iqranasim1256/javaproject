@@ -1,0 +1,48 @@
+interface Bank {
+    void deposit(double amount);
+    void withdraw(double amount);
+}
+
+class Customer {
+    String name;
+
+    Customer(String name) {
+        this.name = name;
+    }
+}
+
+class Account extends Customer implements Bank {
+    double balance = 0;
+
+    Account(String name) {
+        super(name);
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+
+    void display() {
+        System.out.println("Customer: " + name);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+public class Main2 {
+    public static void main(String[] args) {
+        Account acc = new Account("Iqra");
+        acc.deposit(5000);
+        acc.withdraw(2000);
+        acc.display();
+    }
+}
