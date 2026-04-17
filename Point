@@ -1,0 +1,35 @@
+class Point {
+    int x, y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    void displayPoint() {
+        System.out.println("Center Point: (" + x + ", " + y + ")");
+    }
+}
+
+class Circle {
+    Point center;
+    double radius;
+
+    Circle(int x, int y, double r) {
+        center = new Point(x, y);  // composition
+        radius = r;
+    }
+
+    void displayCircle() {
+        center.displayPoint();
+        System.out.println("Radius: " + radius);
+        System.out.println("Area: " + (Math.PI * radius * radius));
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        Circle c = new Circle(3, 4, 5);
+        c.displayCircle();
+    }
+}
