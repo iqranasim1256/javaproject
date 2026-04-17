@@ -1,0 +1,51 @@
+abstract class MotorVehicle {
+    // Data Members
+    protected String modelName;
+    protected String modelNumber;
+    protected double modelPrice;
+
+    // Constructor
+    public MotorVehicle(String modelName, String modelNumber, double modelPrice) {
+        this.modelName = modelName;
+        this.modelNumber = modelNumber;
+        this.modelPrice = modelPrice;
+    }
+
+    // Abstract Method
+    abstract void display();
+}
+
+// Subclass
+class Car extends MotorVehicle {
+    // Additional Data Member
+    private double discountRate;
+
+    // Constructor
+    public Car(String modelName, String modelNumber, double modelPrice, double discountRate) {
+        super(modelName, modelNumber, modelPrice);
+        this.discountRate = discountRate;
+    }
+
+    // Method to compute discount
+    public double discount() {
+        return modelPrice * discountRate / 100;
+    }
+
+    // Overriding display() method
+    @Override
+    void display() {
+        System.out.println("Car Name: " + modelName);
+        System.out.println("Model Number: " + modelNumber);
+        System.out.println("Price: " + modelPrice);
+        System.out.println("Discount Rate: " + discountRate + "%");
+        System.out.println("Discount Amount: " + discount());
+    }
+}
+
+// Main class to test
+class Main {
+    public static void main(String[] args) {
+        Car c = new Car("Honda City", "HC123", 1200000, 10);
+        c.display();
+    }
+}
